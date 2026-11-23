@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-
 public class SortedListGUI extends JFrame
 {
     SortedList sortedList = new SortedList();
@@ -19,7 +18,6 @@ public class SortedListGUI extends JFrame
     Font labelFont = new Font("SansSerif", Font.PLAIN, 15);
     Font textFont = new Font("Monospaced", Font.PLAIN, 13);
     Font buttonFont = new Font("SansSerif", Font.BOLD, 16);
-
     public SortedListGUI()
     {
         mainPnl = new JPanel(new BorderLayout());
@@ -35,12 +33,10 @@ public class SortedListGUI extends JFrame
         mainPnl.add(buttonPnl, BorderLayout.SOUTH);
         add(mainPnl);
     }
-
     private void createInputPanel()
     {
         inputPnl = new JPanel(new GridLayout(2, 1, 5, 5));
         inputPnl.setBorder(new TitledBorder("Enter Data"));
-
         JPanel addRow = new JPanel(new BorderLayout(10, 5));
         JLabel addLbl = new JLabel("Add string:     ");
         addLbl.setFont(labelFont);
@@ -49,7 +45,6 @@ public class SortedListGUI extends JFrame
         addTF.addActionListener(e -> addElement());
         addRow.add(addLbl, BorderLayout.WEST);
         addRow.add(addTF, BorderLayout.CENTER);
-
         JPanel searchRow = new JPanel(new BorderLayout(10, 5));
         JLabel searchLbl = new JLabel("Search for:      ");
         searchLbl.setFont(labelFont);
@@ -58,11 +53,9 @@ public class SortedListGUI extends JFrame
         searchTF.addActionListener(e -> search());
         searchRow.add(searchLbl, BorderLayout.WEST);
         searchRow.add(searchTF, BorderLayout.CENTER);
-
         inputPnl.add(addRow);
         inputPnl.add(searchRow);
     }
-
     private void createButtonPanel()
     {
         buttonPnl = new JPanel(new GridLayout(1, 4));
@@ -86,7 +79,6 @@ public class SortedListGUI extends JFrame
         });
         quitBtn.addActionListener(e -> System.exit(0));
     }
-
     private void addElement()
     {
         String value = addTF.getText().trim();
@@ -101,7 +93,6 @@ public class SortedListGUI extends JFrame
         addTF.setText("");
         addTF.requestFocus();
     }
-
     private void search()
     {
         String value = searchTF.getText().trim();
@@ -143,7 +134,6 @@ public class SortedListGUI extends JFrame
         searchTF.setText("");
         searchTF.requestFocus();
     }
-
     private String listString()
     {
         StringBuilder sb = new StringBuilder("[");
@@ -157,13 +147,11 @@ public class SortedListGUI extends JFrame
         }
         return sb.append("]").toString();
     }
-
     private void log(String line)
     {
         logTA.append(line + System.lineSeparator());
         logTA.setCaretPosition(logTA.getDocument().getLength());
     }
-
     public static void main(String[] args)
     {
         SwingUtilities.invokeLater(() ->

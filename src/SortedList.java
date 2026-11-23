@@ -1,19 +1,7 @@
 import java.util.ArrayList;
-
-/**
- * An ArrayList-like container of Strings that always keeps its elements
- * in ascending lexicographic order. New elements are placed using a
- * hand-written binary search (no Collections/Arrays.binarySearch).
- */
 public class SortedList
 {
     private final ArrayList<String> list = new ArrayList<>();
-
-    /**
-     * Binary search for target.
-     * @return the index of target if found, otherwise -(insertionPoint + 1)
-     *         (same convention as java.util.Arrays.binarySearch)
-     */
     public int binarySearch(String target)
     {
         int low = 0;
@@ -37,11 +25,6 @@ public class SortedList
         }
         return -(low + 1);
     }
-
-    /**
-     * Adds element in its sorted position.
-     * @return the index the element was inserted at
-     */
     public int add(String element)
     {
         int idx = binarySearch(element);
@@ -49,27 +32,22 @@ public class SortedList
         list.add(insertAt, element);
         return insertAt;
     }
-
     public String get(int index)
     {
         return list.get(index);
     }
-
     public int size()
     {
         return list.size();
     }
-
     public boolean isEmpty()
     {
         return list.isEmpty();
     }
-
     public void clear()
     {
         list.clear();
     }
-
     @Override
     public String toString()
     {
